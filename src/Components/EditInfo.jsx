@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { data } from '../Routing/Routing'
@@ -8,7 +8,8 @@ const EditInfo = () => {
   const location=useLocation()
   const navigate=useNavigate()
   console.log(location)
-  let arr=useContext(data).array
+  const arr=useContext(data).array
+  console.log(arr)
   // console.log(arr)
   function update(){
     navigate('/student')
