@@ -36,7 +36,7 @@ const Students = () => {
       <td>{value.Age}</td>
       <td>{value.Course}</td>
       <td>{value.Batch}</td>
-      <td><Link to='/edit' state={{index}}>Edit</Link></td>
+      <td><Link to='/edit' state={{data:index}}>Edit</Link></td>
     </tr>
    </tbody>
 

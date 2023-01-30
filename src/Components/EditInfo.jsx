@@ -7,24 +7,37 @@ import { data } from '../Routing/Routing'
 const EditInfo = () => {
   const location=useLocation()
   const navigate=useNavigate()
-  console.log(location)
+  const index=location.state.data
   const arr=useContext(data).array
-  console.log(arr)
-  // console.log(arr)
+  const setarr=useContext(data).setfun
+  const newObj={
+    Name:arr[index].Name,
+    Age:arr[index].Age,
+    Course:arr[index].Course,
+    Batch:arr[index].Batch,
+  }
+  
+  function changehandler(e){
+    newObj[e.target.name]=e.target.value
+  }
   function update(){
+    setarr((prevObj)=>{
+      prevObj[index]=newObj;
+      return(prevObj)
+    })
     navigate('/student')
   }
   return (
     <div className='con1'>
       <h1>Edit</h1>
        <div className='con2'>
-       <input placeholder='Name'></input>
+       <input placeholder={arr[index].Name} name='Name' onChange={changehandler}></input>
         <br />
-        <input placeholder='Age'></input>
+        <input placeholder={arr[index].Age}  name='Age' onChange={changehandler}></input>
         <br />
-        <input placeholder='Course'></input>
+        <input placeholder={arr[index].Course}  name='Course'  onChange={changehandler}></input>
         <br />
-        <input placeholder='Batch'></input>
+        <input placeholder={arr[index].Batch}  name='Batch'  onChange={changehandler}></input>
         <br />
        </div>
        <div className='con3'>
